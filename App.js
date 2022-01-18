@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 
 export default function App() {
 
@@ -17,7 +17,10 @@ export default function App() {
   const checkNumero = () => {
 
     if (arvaus == numero) {
-      setText('Oikein!');
+      Alert.alert('Vastauksesi ' + arvaus + ' oli oikein! Voit tyhjentää kentän ja arvata uusiksi, jos tahdot.')
+      setText('Arvaa numero 1-100 väliltä');
+      setNumero(Math.floor(Math.random() * 100) + 1);
+      setArvaus(0);
     } else if (arvaus <= numero) {
       setText('Liian pieni arvaus.')
     } else if (arvaus >= numero) {
