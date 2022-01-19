@@ -6,6 +6,7 @@ export default function App() {
 
   const [numero, setNumero] = React.useState(0);
   const [arvaus, setArvaus] = React.useState(0);
+  const [laskuri, setLaskuri] = React.useState(1);
   const [text, setText] = React.useState('');
 
   React.useEffect(() => {
@@ -17,14 +18,18 @@ export default function App() {
   const checkNumero = () => {
 
     if (arvaus == numero) {
-      Alert.alert('Vastauksesi ' + arvaus + ' oli oikein! Voit tyhjentää kentän ja arvata uusiksi, jos tahdot.')
+      setLaskuri(laskuri + 1);
+      Alert.alert('Vastauksesi ' + arvaus + ' oli oikein! Arvasit yhteensä ' + laskuri + ' kertaa.')
+      setLaskuri(0);
       setText('Arvaa numero 1-100 väliltä');
       setNumero(Math.floor(Math.random() * 100) + 1);
-      setArvaus(0);
+      setArvaus(1);
     } else if (arvaus <= numero) {
       setText('Liian pieni arvaus.')
+      setLaskuri(laskuri + 1);
     } else if (arvaus >= numero) {
       setText('Liian suuri arvaus.')
+      setLaskuri(laskuri + 1);
     }
 
   }
