@@ -20,10 +20,10 @@ export default function App() {
     if (arvaus == numero) {
       setLaskuri(laskuri + 1);
       Alert.alert('Vastauksesi ' + arvaus + ' oli oikein! Arvasit yhteensä ' + laskuri + ' kertaa.')
-      setLaskuri(0);
+      setLaskuri(1);
       setText('Arvaa numero 1-100 väliltä');
       setNumero(Math.floor(Math.random() * 100) + 1);
-      setArvaus(1);
+      setArvaus(0);
     } else if (arvaus <= numero) {
       setText('Liian pieni arvaus.')
       setLaskuri(laskuri + 1);
